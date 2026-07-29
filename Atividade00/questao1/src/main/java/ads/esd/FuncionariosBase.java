@@ -25,7 +25,7 @@ public class FuncionariosBase extends Funcionario{
 
     @Override
     public String toString() {
-        return "Funcionarios: " + nome + '\n' +
-                "salario =" + salario;
+        return   "nome: " + nome +
+                ", salario : " + salario;
     }
 }

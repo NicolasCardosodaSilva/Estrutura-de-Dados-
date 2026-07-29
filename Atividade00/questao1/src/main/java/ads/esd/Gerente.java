@@ -28,8 +28,8 @@ public class Gerente extends Funcionario{
 
     @Override
     public String toString() {
-        return "Gerente: " +
-                "nome: " + nome + '\n' +
+        return
+                nome + '\n' +
                 "salario: " + salario;
     }
 }

@@ -1,6 +1,7 @@
 package ads.esd;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class Projeto {
     private String nome;
@@ -8,7 +9,7 @@ public class Projeto {
     private ArrayList<FuncionariosBase> funcionarios = new ArrayList<>();
     private String status;
     private double custoTotal;
-    private int id;
+
 
     public Projeto(String nome, Gerente gerente, String status) {
         this.gerente = gerente;
@@ -18,10 +19,13 @@ public class Projeto {
 
     public void adicionarFuncionario(FuncionariosBase f){
         funcionarios.add(f);
+        calcularSalarioGerente();
+        calcularBonusProjeto();
+        calcularCustoTotal();
     }
 
     public void calcularBonusProjeto(){
-            if (status == "finalizado") {
+            if (status.equalsIgnoreCase("finalizado")) {
                 double salarioG = gerente.getSalario() + gerente.getSalario() * 0.1;
                 gerente.setSalario(salarioG);
                 for (FuncionariosBase f : funcionarios) {
@@ -64,4 +68,13 @@ public class Projeto {
         return custoTotal;
     }
 
+    @Override
+    public String toString() {
+        return "Projeto{" + '\n' +
+                "nome: " + nome + '\n' +
+                "gerente: " + gerente + '\n' +
+                "funcionarios: " + funcionarios + '\n' +
+                "custoTotal: " + custoTotal + '\n' +
+                '}';
+    }
 }
