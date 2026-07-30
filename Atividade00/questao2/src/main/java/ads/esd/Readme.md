@@ -4,6 +4,9 @@ classDiagram
     
     
     class App{
+        -HashMap~Cliente~
+        -HashMap~Imovel~
+        -HashMap~Contrato~
         +cadastrarImovel()
         +cadastrarCliente()
         +cadastrarContrato()
