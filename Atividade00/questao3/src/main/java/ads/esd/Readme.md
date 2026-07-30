@@ -13,7 +13,7 @@
 - setAutor(autor: String) :: void
 - setAno(ano: int) :: void 
 
-## Consulta
+## Consulta:
 - getTitulo() :: String
 - getAutor() :: String
 - getAno() :: int
