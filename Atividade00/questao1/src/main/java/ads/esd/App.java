@@ -12,7 +12,7 @@ public class App {
     public String cadastrarProjeto () {
         String nome = IO.readln("Digite o nome do projeto: ");
         String id = IO.readln("Digite o id do projeto: ");
-        Gerente g = new Gerente(IO.readln("Digite o nome do gerente: "), Integer.parseInt(IO.readln("Digite o salario do gerente: ")));
+        Gerente g = new Gerente(IO.readln("Digite o nome do gerente: "), Double.parseDouble(IO.readln("Digite o salario do gerente: ")));
         String status = IO.readln("Escreva o status do projeto: ");
         Projeto p = new Projeto(nome,g,status);
         projetos.put(id,p);
@@ -23,9 +23,7 @@ public class App {
         String id = IO.readln("Digite a id do projeto que você deseja associar funcionarios: ");
         if (projetos.containsKey(id)) {
             Projeto p = projetos.get(id);
-            String nomeF = IO.readln("Diga o nome do funcionario: ");
-            double salarioF = Double.parseDouble(IO.readln("Digite o salario do funcionario: "));
-            FuncionariosBase f = new FuncionariosBase(nomeF, salarioF);
+            FuncionariosBase f = new FuncionariosBase(IO.readln("Diga o nome do funcionario: "),Double.parseDouble(IO.readln("Digite o salario do funcionario: ")));
             p.adicionarFuncionario(f);
             return "funcionario adicionado" + '\n';
         } else {
