@@ -6,6 +6,7 @@ classDiagram
     class App{
         +cadastrarImovel()
         +cadastrarCliente()
+        +cadastrarContrato()
         +verDetalhes():String
         +verHistorico():String
         +menu(opcao:int)
@@ -26,6 +27,8 @@ classDiagram
     }
     
     class Contrato{
+        -cliente:Cliente
+        -imovel:Imovel
         -codigo:int
         -dataInicio:LocalDate
         -dataTermino:LocalDate
@@ -33,4 +36,10 @@ classDiagram
         +Contrato()
     }
 
+
+    Imovel "1" --o "0.." Contrato
+    Cliente "1" --o "0.." Contrato
+    App "1" --* "0.." Contrato
+    App "1" --* "0.." Imovel
+    App "1" --* "0.." Cliente
 ```
