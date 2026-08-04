@@ -45,13 +45,46 @@ public class VetorEstatico {
         tamanho++;
     }
 
+    public void remover(int indice){
+        if (indice < 0 || indice >= tamanho){
+            System.out.println("indice invalido");
+            return;
+        }
+        for(int i = indice; i < tamanho; i++){
+            elementos[i] = elementos[i + 1];
+        }
+        elementos[tamanho-1] = null;
+        tamanho--;
+    }
+
+    public void remover(String elemento){
+        for (int i = 0; i < tamanho; i++) {
+            if (elementos[i].equals(elemento)){
+                remover(i);
+                return;
+            }
+        }
+    }
+
     public int getTamanho() {
-        return tamanho;
+        return this.tamanho;
+    }
+
+    public String ler(int indice){
+        if(indice>= 0 && indice < tamanho){
+            return elementos[indice];
+        } else { throw new IndexOutOfBoundsException("Índice inválido");
+
+        }
     }
 
     public void removerFinal(){
-        elementos[tamanho - 1 ] = null;
-        tamanho--;
+        if(tamanho > 0) {
+            elementos[tamanho - 1] = null;
+            tamanho--;
+        } else {
+            System.out.println("Vetor vazio");
+        }
     }
 
     public void imprimir() {
