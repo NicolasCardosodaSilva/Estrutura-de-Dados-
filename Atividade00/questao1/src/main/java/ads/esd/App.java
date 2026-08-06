@@ -49,7 +49,7 @@ public class App {
             final StringBuilder sb = new StringBuilder();
                 String id = IO.readln("Digite o id do seu projeto:" + '\n');
                 if (projetos.containsKey(id)) {
-                    Projeto p = projetos.get(id);
+                    Projeto p = projetos.get(id );
                     sb.append(p.toString()).append('\n');
                     return sb.toString();
                 } else return "Projeto não encontrado";

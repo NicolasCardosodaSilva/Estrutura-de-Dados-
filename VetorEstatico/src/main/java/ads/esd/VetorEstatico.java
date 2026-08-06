@@ -1,6 +1,6 @@
 package ads.esd;
 
-public class VetorEstatico {
+public class    VetorEstatico {
     private String[] elementos;
     private int tamanho;
 
