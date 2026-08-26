@@ -1,12 +1,12 @@
 package ads.esd;
 
-public class Vetor<T> {
+public class Vetor<T extends Comparable<T>> {
     private T[] elementos;
     private int tamanho;
 
     @SuppressWarnings("unchecked")
     public Vetor (int quantidade){
-        elementos = (T[]) new Object[quantidade];
+        elementos = (T[]) new Comparable[quantidade];
         tamanho = 0;
     }
 
