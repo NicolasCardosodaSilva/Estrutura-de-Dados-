@@ -33,21 +33,24 @@ public class Servidor {
                     } else {
                         totalReqPerdidas++;
                     }
-                        for (int j = 0; j < numProcessadores; j++) {
-                            if(!fila.isEmpty()) {
-                                fila.desenfileirar();
-                                totalReqAtendidas++;
-                            }
-                        }
-
                 }
 
+                for (int j = 0; j < numProcessadores; j++) {
+                    if(!fila.isEmpty()) {
+                        fila.desenfileirar();
+                        totalReqAtendidas++;
+                    }
+                }
         }
-        relacaoAtendidas = (double) (totalReqAtendidas /totalReqGeradas) *100.00;
-        relacaoPerdidas = (double) (totalReqPerdidas /totalReqGeradas) * 100.00;
-        System.out.println("Porcentagem de requisições perdidas: " + relacaoPerdidas);
-        System.out.println("Porcentagem de requisições atendidas: " + relacaoAtendidas);
-        System.out.println(totalReqPerdidas);
+        if(totalReqGeradas != 0 ){
+            relacaoAtendidas = ((double) totalReqAtendidas /totalReqGeradas) * 100;
+            relacaoPerdidas = ((double) totalReqPerdidas /totalReqGeradas) * 100;
+        } else {
+            relacaoAtendidas = 0;
+            relacaoPerdidas = 0;
+        }
+        System.out.println("Porcentagem de requisições perdidas: " + relacaoPerdidas + "%");
+        System.out.println("Porcentagem de requisições atendidas: " + relacaoAtendidas + "%");
     }
 
 

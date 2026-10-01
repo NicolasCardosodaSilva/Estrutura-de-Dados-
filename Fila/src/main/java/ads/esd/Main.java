@@ -5,6 +5,6 @@ package ads.esd;
 public class Main {
     static void main() {
      Servidor servidor = new Servidor(4,1000,10);
-     servidor.executar(100);
+     servidor.executar(4);
     }
 }
